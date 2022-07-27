@@ -7,6 +7,12 @@ for (let i = 0; i < 16; i++) {
         col.classList.add('col');
         row.appendChild(col);
     }
-    
+
     document.querySelector('.container').appendChild(row);
 }
+
+document.querySelectorAll('.col').forEach(div => {
+    div.addEventListener('mouseover', e => {
+        e.target.style.backgroundColor = 'red';
+    });
+});
