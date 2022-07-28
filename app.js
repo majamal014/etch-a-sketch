@@ -1,18 +1,18 @@
-for (let i = 0; i < 16; i++) {
-    const row = document.createElement('div');
-    row.classList.add('row');
+function renderGrid(numSquares) {
+    const grid = document.querySelector('.grid');
+    grid.style.gridTemplateColumns = `repeat(${numSquares}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${numSquares}, 1fr)`;
+    
+    for (let i = 0; i < numSquares * numSquares; i++) {
+        const square = document.createElement('div');
+        square.style.border = '2px solid black';
+        square.style.margin = '-1px';
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'red';
+        });
 
-    for (let j = 0; j < 16; j++) {
-        const col = document.createElement('div');
-        col.classList.add('col');
-        row.appendChild(col);
+        grid.appendChild(square);
     }
-
-    document.querySelector('.container').appendChild(row);
 }
 
-document.querySelectorAll('.col').forEach(div => {
-    div.addEventListener('mouseover', e => {
-        e.target.style.backgroundColor = 'red';
-    });
-});
+renderGrid(32);
