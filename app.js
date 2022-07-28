@@ -10,7 +10,9 @@ function renderGrid(numSquares) {
         square.style.border = '2px solid black';
         square.style.margin = '-1px';
         square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = 'red';
+            if (square.style.backgroundColor == '') {
+                square.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            }
         });
 
         grid.appendChild(square);
