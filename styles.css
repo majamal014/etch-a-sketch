@@ -1,5 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    margin-bottom: 10px;
+}
+
 .grid {
     width: 500px;
     height: 500px;
     display: grid;
+}
+
+.grid div {
+    border: 2px solid black;
+    margin: -1px;
 }
