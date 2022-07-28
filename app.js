@@ -1,5 +1,7 @@
+const grid = document.querySelector('.grid');
+
 function renderGrid(numSquares) {
-    const grid = document.querySelector('.grid');
+    
     grid.style.gridTemplateColumns = `repeat(${numSquares}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${numSquares}, 1fr)`;
     
@@ -15,4 +17,13 @@ function renderGrid(numSquares) {
     }
 }
 
-renderGrid(32);
+renderGrid(16);
+
+document.querySelector('button').addEventListener('click', () => {
+    let size = parseInt(prompt("Enter number of squares per side."));
+    while (size > 64) {
+        size = parseInt(prompt("Maximum number is 64. Enter again."));
+    }
+    grid.innerHTML = '';
+    renderGrid(size);
+});
